@@ -15,12 +15,12 @@ class Notifier
     tail
   end
   
-  def recieve(key)
+  def receive(key)
     @ts.read([key, nil])
   end
 end
 
-DRb.start_service('druby://loacalhost:54321', Notifier.new)
+DRb.start_service('druby://localhost:54321', Notifier.new)
 while true
   sleep 1
 end
